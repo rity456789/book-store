@@ -19,17 +19,25 @@ function Footer() {
               <i className="icon icon-heart-pulse" /> Help
             </a>
           </div>
+          <div className="col-md-6 text-md-right">
+            <a
+              href="https://themeforest.net/item/reveal-responsive-multipurpose-ecommerce-bootstrap-html-template/29644121"
+              className="btn btn-outline-light btn-rounded btn-sm px-3"
+            >
+              <i className="icon icon-cart" /> Get the licence
+            </a>
+          </div>
         </div>
         <div className="pt-5 text-muted text-center">
           <div className="mb-3">
-            <b>Nhóm 12</b>
+            <img src="assets/svg/reveal-logo.svg" alt="" />
           </div>
           <div>
             <small className="text-muted pre-label">
               A bold visual experience
             </small>
           </div>
-          <small>All rights reserved 2020 ©</small>
+          <small>All rights reserved 2020 © Reveal</small>
         </div>
       </div>
     </footer>

@@ -8,18 +8,14 @@ export const SRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => (
-        <div id="wrapper" className="wrapper-with-transparent-header">
-          <header id="header-container" className="fullwidth">
-            <Header home={true}></Header>
-          </header>
+        <>
+          <Header></Header>
           <div className="clearfix" />
-
           <div className="content">
             <Component {...props}></Component>
           </div>
-
           <Footer></Footer>
-        </div>
+        </>
       )}
     ></Route>
   );
