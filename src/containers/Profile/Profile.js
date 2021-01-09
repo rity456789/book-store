@@ -48,7 +48,7 @@ function Profile() {
                       <label className="pre-label">Account</label>
                     </li>
                     <li
-                      className={`list-group-item ${tab == 1 ? "active" : ""}`}
+                      className={`list-group-item ${tab === 1 ? "active" : ""}`}
                     >
                       <span onClick={() => dispatch(changeTab(1))}>
                         <div className="d-flex justify-content-between align-items-center">
@@ -61,7 +61,7 @@ function Profile() {
                     </li>
 
                     <li
-                      className={`list-group-item ${tab == 2 ? "active" : ""}`}
+                      className={`list-group-item ${tab === 2 ? "active" : ""}`}
                     >
                       <span onClick={() => dispatch(changeTab(2))}>
                         <div className="d-flex justify-content-between align-items-center">
@@ -81,7 +81,7 @@ function Profile() {
                       <label className="pre-label">Dashboard</label>
                     </li>
                     <li
-                      className={`list-group-item ${tab == 3 ? "active" : ""}`}
+                      className={`list-group-item ${tab === 3 ? "active" : ""}`}
                     >
                       <span onClick={() => dispatch(changeTab(3))}>
                         <div className="d-flex justify-content-between align-items-center">
@@ -89,12 +89,11 @@ function Profile() {
                             <i className="icon icon-cart mr-2" />
                             <span>Orders</span>
                           </span>
-                          <span className="badge  badge-pill">125</span>
                         </div>
                       </span>
                     </li>
                     <li
-                      className={`list-group-item ${tab == 4 ? "active" : ""}`}
+                      className={`list-group-item ${tab === 4 ? "active" : ""}`}
                     >
                       <span onClick={() => dispatch(changeTab(4))}>
                         <div className="d-flex justify-content-between align-items-center">
@@ -102,7 +101,6 @@ function Profile() {
                             <i className="icon icon-heart mr-2" />
                             <span>Whishlist</span>
                           </span>
-                          <span className="badge  badge-pill">9</span>
                         </div>
                       </span>
                     </li>
@@ -115,7 +113,7 @@ function Profile() {
                       <label className="pre-label">Access</label>
                     </li>
                     <li
-                      className={`list-group-item ${tab == 5 ? "active" : ""}`}
+                      className={`list-group-item ${tab === 5 ? "active" : ""}`}
                     >
                       <span onClick={() => dispatch(changeTab(5))}>
                         <div className="d-flex justify-content-between align-items-center">

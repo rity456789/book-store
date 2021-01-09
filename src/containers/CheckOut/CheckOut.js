@@ -16,22 +16,22 @@ function CheckOut() {
             <div className="col-lg-8">
               <div className="steps steps-sm">
                 <ul className="row">
-                  <li className={`col ${step == 1 ? "current" : ""}`}>
+                  <li className={`col ${step === 1 ? "current" : ""}`}>
                     <span className="step-item" data-text="Checkout">
                       <span>1</span>
                     </span>
                   </li>
-                  <li className={`col ${step == 2 ? "current" : ""}`}>
+                  <li className={`col ${step === 2 ? "current" : ""}`}>
                     <span className="step-item" data-text="Delivery">
                       <span>2</span>
                     </span>
                   </li>
-                  <li className={`col ${step == 3 ? "current" : ""}`}>
+                  <li className={`col ${step === 3 ? "current" : ""}`}>
                     <span className="step-item" data-text="Payment">
                       <span>3</span>
                     </span>
                   </li>
-                  <li className={`col ${step == 4 ? "current" : ""}`}>
+                  <li className={`col ${step === 4 ? "current" : ""}`}>
                     <span className="step-item" data-text="Receipt">
                       <span>4</span>
                     </span>
