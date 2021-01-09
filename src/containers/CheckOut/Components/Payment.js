@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { goToNextStep, goToPrevStep } from "../actions";
 
 function Payment() {
+  const dispatch = useDispatch();
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -230,20 +233,20 @@ function Payment() {
           <div className="py-3">
             <div className="row align-items-center no-gutters">
               <div className="col-6">
-                <a
-                  href="checkout-delivery.html"
+                <button
                   className="btn btn-dark btn-primary btn-rounded px-lg-5"
+                  onClick={() => dispatch(goToPrevStep())}
                 >
                   Delivery
-                </a>
+                </button>
               </div>
               <div className="col-6 text-right">
-                <a
-                  href="checkout-receipt.html"
+                <button
                   className="btn btn-primary btn-rounded px-lg-5"
+                  onClick={() => dispatch(goToNextStep())}
                 >
                   Complete
-                </a>
+                </button>
               </div>
             </div>
           </div>

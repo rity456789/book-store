@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { goToNextStep } from "../actions";
 
 function CheckOut() {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="container">
@@ -182,13 +185,11 @@ function CheckOut() {
             {/* Buttons */}
             <div className="py-3">
               <div className="row align-items-center no-gutters">
-                <div className="col-6">
-                  <button className="btn btn-dark btn-primary btn-rounded px-lg-5">
-                    Next step
-                  </button>
-                </div>
-                <div className="col-6 text-right">
-                  <button className="btn btn-primary btn-rounded px-lg-5">
+                <div className="col-12 text-right">
+                  <button
+                    className="btn btn-primary btn-rounded px-lg-5"
+                    onClick={() => dispatch(goToNextStep())}
+                  >
                     Next step
                   </button>
                 </div>
