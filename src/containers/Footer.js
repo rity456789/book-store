@@ -19,14 +19,6 @@ function Footer() {
               <i className="icon icon-heart-pulse" /> Help
             </a>
           </div>
-          <div className="col-md-6 text-md-right">
-            <a
-              href="https://themeforest.net/item/reveal-responsive-multipurpose-ecommerce-bootstrap-html-template/29644121"
-              className="btn btn-outline-light btn-rounded btn-sm px-3"
-            >
-              <i className="icon icon-cart" /> Get the licence
-            </a>
-          </div>
         </div>
         <div className="pt-5 text-muted text-center">
           <div className="mb-3">
