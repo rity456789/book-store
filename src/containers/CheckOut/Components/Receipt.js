@@ -1,6 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetStep } from "../actions";
 
 function Receipt() {
+  const dispatch = useDispatch();
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -136,21 +140,14 @@ function Receipt() {
           {/* Buttons */}
           <div className="py-3">
             <div className="row align-items-center no-gutters">
-              <div className="col-6">
-                <a
-                  href="profile-orders.html"
-                  className="btn btn-dark btn-primary btn-rounded px-lg-5"
-                >
-                  Order history
-                </a>
-              </div>
-              <div className="col-6 text-right">
-                <a
-                  href="profile-whishlist.html"
+              <div className="col-12 text-right">
+                <NavLink
+                  to="/"
                   className="btn btn-primary btn-rounded px-lg-5"
+                  onClick={() => dispatch(resetStep())}
                 >
-                  My whishlist
-                </a>
+                  Go home
+                </NavLink>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { PREV_STEP, NEXT_STEP } from "./actions";
+import { PREV_STEP, NEXT_STEP, RESET_STEP } from "./actions";
 
 const inititalState = {
   step: 1,
@@ -15,6 +15,11 @@ const reducer = (state = inititalState, action) => {
       return {
         ...state,
         step: state.step - 1,
+      };
+    case RESET_STEP:
+      return {
+        ...state,
+        step: 1,
       };
     default:
       return state;
