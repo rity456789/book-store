@@ -21,3 +21,7 @@ body {
 .grey {
   background-color: #555;
 }
+
+.list-group-item span {
+  cursor: pointer;
+}
