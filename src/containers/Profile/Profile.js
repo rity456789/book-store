@@ -126,7 +126,13 @@ function Profile() {
                     </li>
                     <li className="list-group-item">
                       <span>
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div
+                          className="d-flex justify-content-between align-items-center"
+                          onClick={() => {
+                            localStorage.clear();
+                            window.location.href = "/login";
+                          }}
+                        >
                           <span>
                             <i className="icon icon-enter-down mr-2" />
                             <span>Sign out</span>
