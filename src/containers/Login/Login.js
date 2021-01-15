@@ -1,12 +1,30 @@
 import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { sendLogin } from "./actions";
+import { sendLogin, sendRegister } from "./actions";
 
 function Login() {
   const isLoading = useSelector((state) => state.loginReducer.isSending);
   const dispatch = useDispatch();
   const usernameEl = useRef("");
   const passwordEl = useRef("");
+  const fullnameEl = useRef("");
+  const usernameRegisterEl = useRef("");
+  const passwordRegisterEl = useRef("");
+  const emailEl = useRef("");
+  const phoneEl = useRef("");
+  const addressEl = useRef("");
+  const onRegister = () => {
+    const account = {
+      ten: fullnameEl.current.value,
+      tenDangNhap: usernameRegisterEl.current.value,
+      matKhau: passwordRegisterEl.current.value,
+      email: emailEl.current.value,
+      soDienThoai: phoneEl.current.value,
+      diaChi: addressEl.current.value,
+      vaiTro: "khach_hang",
+    };
+    dispatch(sendRegister(account));
+  };
   const onLogin = () => {
     const username = usernameEl.current.value;
     const password = passwordEl.current.value;
@@ -45,7 +63,8 @@ function Login() {
                             <input
                               type="text"
                               className="form-control form-control-simple"
-                              placeholder="First name: *"
+                              placeholder="Fullname: *"
+                              ref={fullnameEl}
                             />
                           </div>
                         </div>
@@ -54,26 +73,18 @@ function Login() {
                             <input
                               type="text"
                               className="form-control form-control-simple"
-                              placeholder="Last name: *"
+                              placeholder="Username: *"
+                              ref={usernameRegisterEl}
                             />
                           </div>
                         </div>
                         <div className="col-md-12">
                           <div className="form-group">
                             <input
-                              type="text"
+                              type="password"
                               className="form-control form-control-simple"
-                              placeholder="Company name:"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <input
-                              type="text"
-                              className="form-control form-control-simple"
-                              placeholder="Address: *"
+                              placeholder="Password: *"
+                              ref={passwordRegisterEl}
                             />
                           </div>
                         </div>
@@ -83,6 +94,7 @@ function Login() {
                               type="text"
                               className="form-control form-control-simple"
                               placeholder="Email: *"
+                              ref={emailEl}
                             />
                           </div>
                         </div>
@@ -92,6 +104,17 @@ function Login() {
                               type="text"
                               className="form-control form-control-simple"
                               placeholder="Phone: *"
+                              ref={phoneEl}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-md-12">
+                          <div className="form-group">
+                            <input
+                              type="text"
+                              className="form-control form-control-simple"
+                              placeholder="Address: *"
+                              ref={addressEl}
                             />
                           </div>
                         </div>
@@ -124,13 +147,25 @@ function Login() {
                             </label>
                           </div>
                         </div>
-                        <div className="col-md-12 text-right py-4">
-                          <a
-                            href="checkout-delivery.html"
-                            className="btn btn-primary"
-                          >
+                        {isLoading ? (
+                          <div className="loading" key={1}>
+                            <div
+                              className="spinner-border text-primary"
+                              role="status"
+                            >
+                              <span className="sr-only">Loading...</span>
+                            </div>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                        <div
+                          className="col-md-12 text-right py-4"
+                          onClick={() => onRegister()}
+                        >
+                          <span className="btn btn-primary">
                             Create an account
-                          </a>
+                          </span>
                         </div>
                       </div>
                     </form>
@@ -208,12 +243,7 @@ function Login() {
                             className=" text-right py-4"
                             onClick={() => onLogin()}
                           >
-                            <span
-                              href="checkout-delivery.html"
-                              className="btn btn-dark"
-                            >
-                              Sign in
-                            </span>
+                            <span className="btn btn-dark">Sign in</span>
                           </div>
                         </div>
                       </div>

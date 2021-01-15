@@ -6,3 +6,9 @@ export function login(tenDangNhap, matKhau) {
     matKhau,
   });
 }
+
+export function register(account) {
+  return axios.post("/auth/register", {
+    ...account,
+  });
+}
