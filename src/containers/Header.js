@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter, NavLink } from "react-router-dom";
 
 function Header() {
-  const isLoginned = true;
+  const isLoginned = localStorage.getItem("token") === null ? false : true;
   return (
     <>
       <div>

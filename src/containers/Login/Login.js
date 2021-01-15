@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { sendLogin } from "./actions";
 
 function Login() {
+  const isLoading = useSelector((state) => state.loginReducer.isSending);
+  const dispatch = useDispatch();
+  const usernameEl = useRef("");
+  const passwordEl = useRef("");
+  const onLogin = () => {
+    const username = usernameEl.current.value;
+    const password = passwordEl.current.value;
+    dispatch(sendLogin(username, password));
+  };
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -156,7 +167,8 @@ function Login() {
                             <input
                               type="text"
                               className="form-control form-control-simple"
-                              placeholder="Email"
+                              placeholder="Username"
+                              ref={usernameEl}
                             />
                           </div>
                           <div className="form-group">
@@ -164,6 +176,7 @@ function Login() {
                               type="password"
                               className="form-control form-control-simple"
                               placeholder="Password"
+                              ref={passwordEl}
                             />
                           </div>
                           <div className="custom-control custom-checkbox custom-checkbox-primary py-2">
@@ -179,13 +192,28 @@ function Login() {
                               Remember me
                             </label>
                           </div>
-                          <div className=" text-right py-4">
-                            <a
+                          {isLoading ? (
+                            <div className="loading" key={1}>
+                              <div
+                                className="spinner-border text-primary"
+                                role="status"
+                              >
+                                <span className="sr-only">Loading...</span>
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                          <div
+                            className=" text-right py-4"
+                            onClick={() => onLogin()}
+                          >
+                            <span
                               href="checkout-delivery.html"
                               className="btn btn-dark"
                             >
                               Sign in
-                            </a>
+                            </span>
                           </div>
                         </div>
                       </div>
