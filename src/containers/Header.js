@@ -22,6 +22,12 @@ function Header() {
             {isLoginned ? (
               <div className="d-flex align-items-center">
                 <NavLink
+                  to="my-shop"
+                  className="btn btn-sm btn-primary btn-rounded ml-lg-4 px-3"
+                >
+                  <i className="icon icon-book" /> My shop
+                </NavLink>
+                <NavLink
                   to="check-out"
                   className="btn btn-sm btn-primary btn-rounded ml-lg-4 px-3"
                 >
