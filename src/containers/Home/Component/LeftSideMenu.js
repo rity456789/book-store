@@ -78,7 +78,7 @@ const LeftSideMenu = (props) =>{
                                 return (
                                     <li className="list-group-item d-flex justify-content-between align-items-center">
                                         <button className="btn-primary btn category-button" 
-                                                onClick={props.onClick}>
+                                                onClick={() =>{props.onClickCategory(category.id)}}>
                                                     {category.ten}
                                         </button>
                                     </li>)

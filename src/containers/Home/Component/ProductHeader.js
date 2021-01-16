@@ -6,7 +6,7 @@ export default function ProductHeader(){
                   <div className="d-flex justify-content-between">
                     {/* Left */}
                     <div>
-                      <div className="form-inline">
+                      {/* <div className="form-inline">
                         
                         <div className="form-group mb-0">
                           <select
@@ -25,7 +25,7 @@ export default function ProductHeader(){
                             <small>Showing all 24 of 128 products</small>
                           </label>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     {/* Right */}
                     <div>
