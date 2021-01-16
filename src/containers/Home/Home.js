@@ -26,6 +26,8 @@ function Home() {
       .then((response)=>{
         setCategories(response.data)
       })
+
+
       .catch(()=>{
         console.log('error!!');
       })
@@ -56,9 +58,9 @@ function Home() {
             <header className="wow fadeInUp" data-wow-delay=".1s">
               <div className="row justify-content-center pt-5 text-center">
                 <div className="col-lg-8">
-                  <h1 className="mb-0">Everything you love</h1>
+                  <h1 className="mb-0">Everything you need</h1>
                   <p>
-                    Find new items now, with great deals and limited time offers
+                    Find new Book now, to getting strong heart and mindset
                   </p>
                 </div>
               </div>

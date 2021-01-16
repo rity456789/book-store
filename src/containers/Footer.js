@@ -22,14 +22,13 @@ function Footer() {
         </div>
         <div className="pt-5 text-muted text-center">
           <div className="mb-3">
-            <img src="assets/svg/reveal-logo.svg" alt="" />
+            <img src="assets/svg/logo.svg" alt="" />
           </div>
           <div>
             <small className="text-muted pre-label">
-              A bold visual experience
             </small>
           </div>
-          <small>All rights reserved 2020 © Reveal</small>
+          <small>All rights reserved 2021 © BookStore</small>
         </div>
       </div>
     </footer>
