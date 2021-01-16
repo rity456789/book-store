@@ -16,7 +16,7 @@ function Header() {
           <div className="container">
             {/* Logo */}
             <NavLink to="/" className="navbar-brand mr-1">
-              <img src="assets/svg/reveal-logo.svg" alt="" />
+              <img src="assets/svg/logo.svg" alt="" />
             </NavLink>
             {/* Checkout & profile */}
             {isLoginned ? (
