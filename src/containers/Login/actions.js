@@ -17,7 +17,7 @@ export const sendLogin = (username, password) => {
       .then((loginResponse) => {
         localStorage.setItem(
           "token",
-          JSON.stringify(loginResponse.access_token)
+          JSON.stringify(loginResponse.data.access_token)
         );
         dispatch(success());
         window.location.href = "/";
