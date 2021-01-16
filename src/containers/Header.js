@@ -2,9 +2,12 @@ import React from "react";
 import { withRouter, NavLink } from "react-router-dom";
 
 function Header() {
-  const isLoginned = localStorage.getItem("token") === null ? false : true;
+  const isLoginned = localStorage.getItem("token") === (('undefined')|| (null)) ? false : true;
   return (
     <>
+    {
+      console.log("okela", localStorage.getItem("token"))
+    }
       <div>
         {/* <div className="loader">
           <div className="spinner-border" role="status">

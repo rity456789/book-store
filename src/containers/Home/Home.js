@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import background from "../../assets/images/banner-1.jpg";
 import LeftSideMenu from './Component/LeftSideMenu'
 import Product from './Component/Product'
-import {getBook, getCategories} from '../../services/home.services'
+import {getBook, getCategories, getBookCategory} from '../../services/home.services'
 import ProductHeader from "./Component/ProductHeader";
 import Pagination from "./Component/Pagination";
 function Home() {
@@ -35,6 +35,18 @@ function Home() {
     setIsloading(false);
     
   })
+
+  const onClickCategory = (loaiId) =>{
+    getBookCategory(loaiId,page,9)
+    .then((response)=>{
+      setProducts(response.data.data)
+      console.log("Okela get product category")
+    })
+    .catch(()=>{
+      console.log('error!!');
+    })
+  }
+
   return (
     <>
       <div>
@@ -60,7 +72,7 @@ function Home() {
           <div className="container">
             <div className="row">
               {/* Left side filters */}
-              <LeftSideMenu categories={categories}/>
+              <LeftSideMenu categories={categories} onClickCategory={onClickCategory}/>
               {/* Products content */}
               <div className="col-lg-9 bg-white pl-lg-5">
                 {/* ProductHeader */}
