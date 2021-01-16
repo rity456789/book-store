@@ -1,6 +1,4 @@
-import React from "react";
-
-function Information() {
+const Information = (props) =>{
   return (
     <div className="col-lg-9 pt-lg-4">
       <h2 className="pre-label font-size-base">Avatar settings</h2>
@@ -8,7 +6,7 @@ function Information() {
         <div>
           <div className="media d-block d-sm-flex align-items-center">
             <img
-              src="assets/images//demo/user-5.jpg"
+              src=""
               className="d-block rounded-circle mx-auto mb-3 mb-sm-0"
               width={110}
               alt="John Doe"
@@ -32,29 +30,34 @@ function Information() {
       <h2 className="pre-label font-size-base">Profile settings</h2>
       <div className="bg-white p-4 p-lg-5 br-sm shadow-sm mb-3 mb-lg-5">
         <div className="row">
-          <div className="col-sm-6">
+        <div className="col-sm-6">
             <div className="form-group">
-              <label className="pre-label pre-label-sm" htmlFor="account-fn">
-                First Name
-              </label>
-              <input
-                className="form-control form-control-simple"
-                type="text"
-                id="account-fn"
-                defaultValue="John"
-              />
+                <label
+                  className="pre-label pre-label-sm"
+                  htmlFor="account-username"
+                >
+                  Username
+                </label>
+                <div className="input-group">
+                  <input
+                    className="form-control form-control-simple"
+                    type="text"
+                    id="account-username"
+                    defaultValue={props.userInfor.tenDangNhap}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
           <div className="col-sm-6">
             <div className="form-group">
               <label className="pre-label pre-label-sm" htmlFor="account-ln">
-                Last Name
+                Phone number
               </label>
               <input
                 className="form-control form-control-simple"
                 type="text"
                 id="account-ln"
-                defaultValue="Dow"
+                defaultValue={props.userInfor.soDienThoai}
               />
             </div>
           </div>
@@ -67,28 +70,11 @@ function Information() {
                 className="form-control form-control-simple"
                 type="text"
                 id="account-email"
-                defaultValue="j.doe@example.com"
+                defaultValue={props.userInfor.email}
               />
             </div>
           </div>
-          <div className="col-sm-6">
-            <div className="form-group">
-              <label
-                className="pre-label pre-label-sm"
-                htmlFor="account-username"
-              >
-                Username
-              </label>
-              <div className="input-group">
-                <input
-                  className="form-control form-control-simple"
-                  type="text"
-                  id="account-username"
-                  defaultValue="john_doe"
-                />
-              </div>
-            </div>
-          </div>
+          
           <div className="col-sm-12">
             <div className="form-group">
               <label
@@ -102,7 +88,7 @@ function Information() {
                   className="form-control form-control-simple"
                   type="text"
                   id="account-address"
-                  defaultValue="124 duong so 1A"
+                  defaultValue={props.userInfor.diaChi}
                 />
               </div>
             </div>

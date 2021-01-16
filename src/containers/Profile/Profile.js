@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Information from "./Components/Information";
 import Notifications from "./Components/Notifications";
@@ -6,10 +6,27 @@ import Orders from "./Components/Orders";
 import ResetPassword from "./Components/ResetPassword";
 import Whishlist from "./Components/Whishlist";
 import { changeTab } from "./actions";
+import {getUserInfor} from '../../services/profile.services'
 
 function Profile() {
   const tab = useSelector((state) => state.profileReducer.tab);
+  const [userInfor,setUserInfor] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
   const dispatch = useDispatch();
+  useEffect(() =>{
+    if(isLoading){
+      
+      getUserInfor()
+      .then((response)=>{
+        setUserInfor(response.data)
+        console.log(response.data)
+      })
+      .catch(()=>{
+        console.log('error!!');
+      })
+    }
+    setIsloading(false);
+  })
   return (
     <div className="container">
       <div className="row">
@@ -22,8 +39,8 @@ function Profile() {
                 <div className="col-9 col-lg-12">
                   <div className="d-flex flex-lg-column align-items-center">
                     <div>
-                      <div className="h5 m-0">John Doe</div>
-                      <div className="text-muted">john.doe@email.com</div>
+                      <div className="h5 m-0">{userInfor.tenDangNhap}</div>
+                      <div className="text-muted">{userInfor.email}</div>
                     </div>
                   </div>
                 </div>
@@ -147,7 +164,7 @@ function Profile() {
           </div>
         </div>
         {/* Dashboard details */}
-        {tab === 1 && <Information></Information>}
+        {tab === 1 && <Information userInfor={userInfor} ></Information>}
         {tab === 2 && <Notifications></Notifications>}
         {tab === 3 && <Orders></Orders>}
         {tab === 4 && <Whishlist></Whishlist>}
