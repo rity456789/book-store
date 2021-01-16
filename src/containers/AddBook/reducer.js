@@ -1,10 +1,7 @@
 import {
-  LOG_IN_REQUEST,
-  LOG_IN_SUCCESS,
-  LOG_IN_FAILURE,
-  REGISTER_REQUEST,
-  REGISTER_FAILURE,
-  REGISTER_SUCCESS,
+  ADD_BOOK_REQUEST,
+  ADD_BOOK_SUCCESS,
+  ADD_BOOK_FAILURE,
 } from "./actions";
 
 const inititalState = {
@@ -13,32 +10,17 @@ const inititalState = {
 
 const reducer = (state = inititalState, action) => {
   switch (action.type) {
-    case LOG_IN_REQUEST:
+    case ADD_BOOK_REQUEST:
       return {
         ...state,
         isSending: true,
       };
-    case LOG_IN_SUCCESS:
+    case ADD_BOOK_SUCCESS:
       return {
         ...state,
         isSending: false,
       };
-    case LOG_IN_FAILURE:
-      return {
-        ...state,
-        isSending: false,
-      };
-    case REGISTER_REQUEST:
-      return {
-        ...state,
-        isSending: true,
-      };
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        isSending: false,
-      };
-    case REGISTER_FAILURE:
+    case ADD_BOOK_FAILURE:
       return {
         ...state,
         isSending: false,
