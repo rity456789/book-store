@@ -1,7 +1,7 @@
 import "./App.css";
 import history from "./ultis/history";
 import { Switch, Redirect, BrowserRouter as Router } from "react-router-dom";
-import { SRoute } from "./containers/CustomRoutes";
+import { SRoute, LoginRoute, PublicRoute } from "./containers/CustomRoutes";
 
 import Home from "./containers/Home/Home";
 import Myshop from "./containers/MyShop/MyShop";
@@ -15,11 +15,11 @@ function App() {
     <>
       <Router>
         <Switch history={history}>
-          <SRoute path="/login" exact component={Login}></SRoute>
+          <LoginRoute path="/login" exact component={Login}></LoginRoute>
           <SRoute path="/check-out" exact component={CheckOut}></SRoute>
           <SRoute path="/profile" exact component={Profile}></SRoute>
-          <SRoute path="/not-found" component={NotFound}></SRoute>
-          <SRoute path="/" exact component={Home}></SRoute>
+          <PublicRoute path="/not-found" component={NotFound}></PublicRoute>
+          <PublicRoute path="/" exact component={Home}></PublicRoute>
           <SRoute path="/my-shop" exact component={Myshop}></SRoute>
           <SRoute path="/add-book" exact component={AddBook}></SRoute>
           <Redirect to="/not-found"></Redirect>
