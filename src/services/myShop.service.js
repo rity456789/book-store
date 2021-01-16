@@ -5,3 +5,7 @@ export function addBook(book) {
     ...book,
   });
 }
+
+export function getCategories() {
+  return axios.get("/categories");
+}

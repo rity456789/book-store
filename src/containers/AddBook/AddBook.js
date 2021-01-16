@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { sendAddBook } from "./actions";
+import { sendAddBook, sendGetCategories } from "./actions";
 
 function AddBook() {
   const isLoading = useSelector((state) => state.addBookReducer.isSending);
+  const isLoadingCategories = useSelector(
+    (state) => state.addBookReducer.isLoadingCategories
+  );
+  const categories = useSelector((state) => state.addBookReducer.categories);
   const dispatch = useDispatch();
   const bookNameEl = useRef("");
   const publisherEl = useRef("");
@@ -20,10 +24,16 @@ function AddBook() {
       hinhAnh: imageLinkEl.current.value,
       tacGia: authorEl.current.value,
       gia: priceEl.current.value,
-      loai: categoryEl.current.value,
+      loai: {
+        id: categoryEl.current.value,
+      },
     };
     dispatch(sendAddBook(book));
   };
+
+  useEffect(() => {
+    dispatch(sendGetCategories());
+  }, []);
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -105,7 +115,7 @@ function AddBook() {
                         <div className="col-md-6">
                           <div className="form-group">
                             <input
-                              type="text"
+                              type="number"
                               className="form-control form-control-simple"
                               placeholder="Price: *"
                               ref={priceEl}
@@ -114,12 +124,36 @@ function AddBook() {
                         </div>
                         <div className="col-md-6">
                           <div className="form-group">
-                            <input
-                              type="text"
-                              className="form-control form-control-simple"
-                              placeholder="Category: *"
-                              ref={categoryEl}
-                            />
+                            {isLoadingCategories == false ? (
+                              <select
+                                name="cars"
+                                id="cars"
+                                className="form-control form-control-simple"
+                                ref={categoryEl}
+                              >
+                                <option value="" disabled selected>
+                                  Select Category: *
+                                </option>
+                                {categories.map((category) => {
+                                  return (
+                                    <option value={category.id}>
+                                      {category.ten}
+                                    </option>
+                                  );
+                                })}
+                              </select>
+                            ) : (
+                              <>
+                                <div className="loading" key={1}>
+                                  <div
+                                    className="spinner-border text-primary"
+                                    role="status"
+                                  >
+                                    <span className="sr-only">Loading...</span>
+                                  </div>
+                                </div>{" "}
+                              </>
+                            )}
                           </div>
                         </div>
                         {isLoading ? (
