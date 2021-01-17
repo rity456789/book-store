@@ -6,7 +6,7 @@ const Information = (props) =>{
         <div>
           <div className="media d-block d-sm-flex align-items-center">
             <img
-              src=""
+              src={props.logo}
               className="d-block rounded-circle mx-auto mb-3 mb-sm-0"
               width={110}
               alt="John Doe"
@@ -109,6 +109,7 @@ const Information = (props) =>{
               <button
                 className="btn btn-rounded btn-outline-primary btn-sm px-3 mt-3 mt-sm-0"
                 type="button"
+                
               >
                 <i className="fa fa-save mr-2" />
                 Save changes

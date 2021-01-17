@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import logo from '../../assets/images/faceIcon.png'; 
 import { useSelector, useDispatch } from "react-redux";
 import Information from "./Components/Information";
 import Notifications from "./Components/Notifications";
@@ -19,7 +20,6 @@ function Profile() {
       getUserInfor()
       .then((response)=>{
         setUserInfor(response.data)
-        console.log(response.data)
       })
       .catch(()=>{
         console.log('error!!');
@@ -164,7 +164,7 @@ function Profile() {
           </div>
         </div>
         {/* Dashboard details */}
-        {tab === 1 && <Information userInfor={userInfor} ></Information>}
+        {tab === 1 && <Information logo={logo} userInfor={userInfor} ></Information>}
         {tab === 2 && <Notifications></Notifications>}
         {tab === 3 && <Orders></Orders>}
         {tab === 4 && <Whishlist></Whishlist>}
