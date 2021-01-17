@@ -1,4 +1,17 @@
+import React, { useRef } from "react";
 const Information = (props) =>{
+  const updatedPhoneNumber = useRef("");
+  const updatedEmail = useRef("");
+  const updateDiaChi = useRef("");
+  const saveChangeInfo = ()=>{
+    alert("sss clicked@!!");
+    const newInfo = {
+      soDienThoai: updatedPhoneNumber.current.value,
+      email: updatedEmail.current.value,
+      diaChi: updateDiaChi.current.value,
+    }
+    props.changeInfoCallBack(newInfo);
+  }
   return (
     <div className="col-lg-9 pt-lg-4">
       <h2 className="pre-label font-size-base">Avatar settings</h2>
@@ -40,6 +53,7 @@ const Information = (props) =>{
                 </label>
                 <div className="input-group">
                   <input
+                    readOnly
                     className="form-control form-control-simple"
                     type="text"
                     id="account-username"
@@ -58,6 +72,7 @@ const Information = (props) =>{
                 type="text"
                 id="account-ln"
                 defaultValue={props.userInfor.soDienThoai}
+                ref= {updatedPhoneNumber}
               />
             </div>
           </div>
@@ -71,6 +86,7 @@ const Information = (props) =>{
                 type="text"
                 id="account-email"
                 defaultValue={props.userInfor.email}
+                ref= {updatedEmail}
               />
             </div>
           </div>
@@ -89,6 +105,7 @@ const Information = (props) =>{
                   type="text"
                   id="account-address"
                   defaultValue={props.userInfor.diaChi}
+                  ref= {updateDiaChi}
                 />
               </div>
             </div>
@@ -109,7 +126,7 @@ const Information = (props) =>{
               <button
                 className="btn btn-rounded btn-outline-primary btn-sm px-3 mt-3 mt-sm-0"
                 type="button"
-                
+                onClick={()=>saveChangeInfo()}             
               >
                 <i className="fa fa-save mr-2" />
                 Save changes
