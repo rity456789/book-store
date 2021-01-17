@@ -5,5 +5,7 @@ export function getUserInfor() {
     });
 }
 export function updatePassword(passwordUpdated){
-    return axios.patch("​/auth​/password",{passwordUpdated});
+    return axios.patch("/auth/password",{
+        passwordUpdated
+    });
 }
