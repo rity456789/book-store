@@ -1,7 +1,7 @@
 // import axios from "../ultis/axios";
 import Axios from "axios";
 
-let axios = Axios.create({
+const axios = Axios.create({
   baseURL: "http://3.0.95.43:6060",
   // baseURL: "http://localhost:8000",
   headers: { "Content-Type": "application/json" },
@@ -25,6 +25,12 @@ export function getBook(page, limit) {
   return axios.get("/books", {
     page,
     limit
+  });
+}
+
+export function getBookId(id) {
+  return axios.get("/books/"+id, {
+    
   });
 }
 

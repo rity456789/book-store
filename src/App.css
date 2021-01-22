@@ -25,3 +25,32 @@ body {
 .list-group-item span {
   cursor: pointer;
 }
+
+.item-container{
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+.quantity-cart{
+  display: flex;
+  flex-direction: row;
+}
+.image-item{
+  width: 450px;
+  margin: 20px;
+}
+
+.btn-add-to-cart{
+  margin-left: 50px;
+  background-color: #ffae00;
+  color: white;
+  font-size: large;
+  height: 40px;
+  width: 150px;
+  border-radius: 5%;
+  border-width: 0px;
+}
+
+.input-quantity{
+  margin-left: 10px;
+}
