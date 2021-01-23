@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-export default function Pagination(){
+export default function Pagination(props){
 
     const [page1, setPage1] = useState('1');
     const [page2, setPage2] = useState('2');
@@ -19,6 +19,8 @@ export default function Pagination(){
     
     const onClickPage = (page) =>{
       setActivePage(page);
+      props.setPage(page);
+      props.setIsloading(true);
     }
 
     return(
@@ -27,39 +29,39 @@ export default function Pagination(){
                   <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center py-3 py-lg-4">
                       <li className="page-item disabled">
-                        <a
+                        <button
                           className="page-link page-link-first"
-                          href="#"
+                          onClick={()=>{onClickPage('-1')}}
                           tabIndex={-1}
                           aria-disabled="true"
                         >
                           Prev
-                        </a>
+                        </button>
                       </li>
                       <li className={classNamePage('1')}>
-                        <button className="page-link" href="#">
+                        <button className="page-link" onClick={()=>{onClickPage('1')}}>
                           {page1}
                         </button>
                       </li>
                       <li className={classNamePage('2')}>
-                        <a className="page-link" href="#">
+                        <button className="page-link" onClick={()=>{onClickPage('2')}}>
                           {page2}
-                        </a>
+                        </button>
                       </li>
                       <li className={classNamePage('3')}>
-                        <a className="page-link" href="#">
+                        <button className="page-link" onClick={()=>{onClickPage('3')}}>
                           {page3}
-                        </a>
+                        </button>
                       </li>
-                      <li className="page-item ">
-                        <a className="page-link" href="#">
+                      <li className={classNamePage('4')}>
+                        <button className="page-link" onClick={()=>{onClickPage('4')}}>
                           {page4}
-                        </a>
+                        </button>
                       </li>
                       <li className="page-item ">
-                        <a className="page-link" href="#">
+                        <button className="page-link" onClick={()=>{onClickPage('+1')}}>
                           Next
-                        </a>
+                        </button>
                       </li>
                     </ul>
                   </nav>

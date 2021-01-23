@@ -5,9 +5,6 @@ function Header() {
   const isLoginned = localStorage.getItem("token") === (('undefined')|| (null)) ? false : true;
   return (
     <>
-    {
-      console.log("okela", localStorage.getItem("token"))
-    }
       <div>
         {/* <div className="loader">
           <div className="spinner-border" role="status">
@@ -31,10 +28,10 @@ function Header() {
                   <i className="icon icon-book" /> My shop
                 </NavLink>
                 <NavLink
-                  to="check-out"
+                  to="cart"
                   className="btn btn-sm btn-primary btn-rounded ml-lg-4 px-3"
                 >
-                  <i className="icon icon-cart" /> Check out
+                  <i className="icon icon-cart" /> Cart
                 </NavLink>
                 <NavLink
                   to="profile"

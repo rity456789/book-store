@@ -84,8 +84,9 @@ function Home() {
                   })}
                   
                 </div>
-                <Pagination/>
+                <Pagination setPage={setPage} setIsloading={setIsloading}/>
               </div>
+              {console.log('okela',page)}
             </div>
           </div>
         </section>
