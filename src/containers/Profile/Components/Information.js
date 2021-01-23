@@ -3,6 +3,7 @@ const Information = (props) =>{
   const updatedPhoneNumber = useRef("");
   const updatedEmail = useRef("");
   const updateDiaChi = useRef("");
+  const updateHoTen = useRef("");
   const saveChangeInfo = ()=>{
     alert("sss clicked@!!");
     const newInfo = {
@@ -62,6 +63,20 @@ const Information = (props) =>{
                 </div>
               </div>
             </div>
+            <div className="col-sm-6">
+            <div className="form-group">
+              <label className="pre-label pre-label-sm" htmlFor="account-fullname">
+                Full Name
+              </label>
+              <input
+                className="form-control form-control-simple"
+                type="text"
+                id="account-fullname"
+                defaultValue={props.userInfor.hoTen}
+                ref= {updateHoTen}
+              />
+            </div>
+          </div>
           <div className="col-sm-6">
             <div className="form-group">
               <label className="pre-label pre-label-sm" htmlFor="account-ln">
