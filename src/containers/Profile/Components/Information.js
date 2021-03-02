@@ -1,4 +1,18 @@
+import React, { useRef } from "react";
 const Information = (props) =>{
+  const updatedPhoneNumber = useRef("");
+  const updatedEmail = useRef("");
+  const updateDiaChi = useRef("");
+  const updateHoTen = useRef("");
+  const saveChangeInfo = ()=>{
+    alert("sss clicked@!!");
+    const newInfo = {
+      soDienThoai: updatedPhoneNumber.current.value,
+      email: updatedEmail.current.value,
+      diaChi: updateDiaChi.current.value,
+    }
+    props.changeInfoCallBack(newInfo);
+  }
   return (
     <div className="col-lg-9 pt-lg-4">
       <h2 className="pre-label font-size-base">Avatar settings</h2>
@@ -6,7 +20,7 @@ const Information = (props) =>{
         <div>
           <div className="media d-block d-sm-flex align-items-center">
             <img
-              src=""
+              src={props.logo}
               className="d-block rounded-circle mx-auto mb-3 mb-sm-0"
               width={110}
               alt="John Doe"
@@ -40,6 +54,7 @@ const Information = (props) =>{
                 </label>
                 <div className="input-group">
                   <input
+                    readOnly
                     className="form-control form-control-simple"
                     type="text"
                     id="account-username"
@@ -48,6 +63,20 @@ const Information = (props) =>{
                 </div>
               </div>
             </div>
+            <div className="col-sm-6">
+            <div className="form-group">
+              <label className="pre-label pre-label-sm" htmlFor="account-fullname">
+                Full Name
+              </label>
+              <input
+                className="form-control form-control-simple"
+                type="text"
+                id="account-fullname"
+                defaultValue={props.userInfor.hoTen}
+                ref= {updateHoTen}
+              />
+            </div>
+          </div>
           <div className="col-sm-6">
             <div className="form-group">
               <label className="pre-label pre-label-sm" htmlFor="account-ln">
@@ -58,6 +87,7 @@ const Information = (props) =>{
                 type="text"
                 id="account-ln"
                 defaultValue={props.userInfor.soDienThoai}
+                ref= {updatedPhoneNumber}
               />
             </div>
           </div>
@@ -71,6 +101,7 @@ const Information = (props) =>{
                 type="text"
                 id="account-email"
                 defaultValue={props.userInfor.email}
+                ref= {updatedEmail}
               />
             </div>
           </div>
@@ -89,6 +120,7 @@ const Information = (props) =>{
                   type="text"
                   id="account-address"
                   defaultValue={props.userInfor.diaChi}
+                  ref= {updateDiaChi}
                 />
               </div>
             </div>
@@ -109,6 +141,7 @@ const Information = (props) =>{
               <button
                 className="btn btn-rounded btn-outline-primary btn-sm px-3 mt-3 mt-sm-0"
                 type="button"
+                onClick={()=>saveChangeInfo()}             
               >
                 <i className="fa fa-save mr-2" />
                 Save changes

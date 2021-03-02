@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
+import logo from '../../assets/images/faceIcon.png'; 
 import { useSelector, useDispatch } from "react-redux";
 import Information from "./Components/Information";
 import Notifications from "./Components/Notifications";
 import Orders from "./Components/Orders";
 import ResetPassword from "./Components/ResetPassword";
 import Whishlist from "./Components/Whishlist";
-import { changeTab } from "./actions";
+import { changePassword, changeTab } from "./actions";
 import {getUserInfor} from '../../services/profile.services'
 
 function Profile() {
@@ -19,7 +20,6 @@ function Profile() {
       getUserInfor()
       .then((response)=>{
         setUserInfor(response.data)
-        console.log(response.data)
       })
       .catch(()=>{
         console.log('error!!');
@@ -27,6 +27,13 @@ function Profile() {
     }
     setIsloading(false);
   })
+  const onEditInfo = (info) =>{
+      console.log(info);
+  }
+  const onChangePassword = (newpassword) => {
+      console.log(newpassword);
+      dispatch(changePassword(newpassword));
+  }
   return (
     <div className="container">
       <div className="row">
@@ -164,11 +171,11 @@ function Profile() {
           </div>
         </div>
         {/* Dashboard details */}
-        {tab === 1 && <Information userInfor={userInfor} ></Information>}
+        {tab === 1 && <Information logo={logo} userInfor={userInfor} changeInfoCallBack = {onEditInfo}></Information>}
         {tab === 2 && <Notifications></Notifications>}
         {tab === 3 && <Orders></Orders>}
         {tab === 4 && <Whishlist></Whishlist>}
-        {tab === 5 && <ResetPassword></ResetPassword>}
+        {tab === 5 && <ResetPassword changePassword={onChangePassword}></ResetPassword>}
       </div>
     </div>
   );

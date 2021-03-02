@@ -136,7 +136,7 @@ function AddBook() {
                                 </option>
                                 {categories.map((category) => {
                                   return (
-                                    <option value={category.id}>
+                                    <option key={category.id} value={category.id}>
                                       {category.ten}
                                     </option>
                                   );
